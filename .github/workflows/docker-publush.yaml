@@ -1,0 +1,50 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  push:
+    name: Push
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        image:
+          - {type: "games", image: "source", PREFIX: "", SUFFIX: "", context: "./games/source", platforms: "linux/amd64"}
+
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Setup Docker buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./${{ matrix.image.context }}
+          file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Containerfile
+          platforms: ${{ matrix.image.platforms }}
+          push: true
+          tags: |
+            ghcr.io/jomsy98/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
