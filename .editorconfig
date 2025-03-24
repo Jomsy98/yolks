@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# editorconfig.org
+>>>>>>> pterodactyl/master
 root = true
 
 [*]
@@ -12,7 +16,14 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
+<<<<<<< HEAD
 [*.{md,yaml}]
 indent_style = space
 indent_size = 2
 tab_width = 2
+=======
+[*.yml]
+indent_style = space
+indent_size = 2
+tab_width = 2
+>>>>>>> pterodactyl/master

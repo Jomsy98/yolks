@@ -12,7 +12,7 @@ permissions:
 jobs:
   push:
     name: Push
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./${{ matrix.image.context }}
-          file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Containerfile
+          file: ./${{ matrix.image.type }}/${{ matrix.image.image }}/Dockerfile
           platforms: ${{ matrix.image.platforms }}
           push: true
           tags: |
