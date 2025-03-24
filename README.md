@@ -20,6 +20,6 @@ This repo is cloned off of [matthewpi](https://github.com/matthewpi/images) and 
 - [`source`](https://github.com/jomsy98/images/tree/master/games/source)
   - Image specifically designed for running Source Engine servers.
   - Tags
-    - `ghcr.io/jomsy98/images:source`
+    - `ghcr.io/jomsy98/games:source`
   - Supported Architectures
     - `linux/amd64`
