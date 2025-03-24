@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/debian:bullseye-slim
+FROM        --platform=$TARGETOS/$TARGETARCH debian:stable-slim
 
 LABEL		author="Jomsy" maintainer="admin@jomsy.ca"
 
