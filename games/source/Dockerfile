@@ -24,7 +24,7 @@ FROM		--platform=$TARGETOS/$TARGETARCH docker.io/library/debian:bullseye-slim
 
 LABEL		author="Jomsy" maintainer="admin@jomsy.ca"
 
-LABEL		org.opencontainers.image.source="https://github.com/manehattan-project/yolks"
+LABEL		org.opencontainers.image.source="https://github.com/Jomsy98/yolks"
 LABEL		org.opencontainers.image.licenses=MIT
 
 ENV			DEBIAN_FRONTEND=noninteractive
@@ -32,7 +32,7 @@ ENV			DEBIAN_FRONTEND=noninteractive
 RUN			dpkg --add-architecture i386 \
 				&& apt update \
 				&& apt upgrade -y \
-				&& apt install -y tar curl gcc gdb g++ iproute2 lib32gcc-s1 libgcc1 libcurl4-gnutls-dev:i386 libssl1.1:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 libsdl1.2debian libfontconfig1 netcat net-tools telnet tzdata git \
+				&& apt install -y apt install -y tar curl gcc g++ lib32gcc-s1 libgcc1 libcurl4-gnutls-dev:i386 libssl3:i386 libcurl4:i386 lib32tinfo6 libtinfo6:i386 lib32z1 lib32stdc++6 libncurses5:i386 libcurl3-gnutls:i386 libsdl2-2.0-0:i386 iproute2 gdb libsdl1.2debian libfontconfig1 telnet net-tools netcat-traditional tzdata git \
 				&& useradd -m -d /home/container container
 
 USER		container
